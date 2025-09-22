@@ -20,7 +20,7 @@ syn match   klipperNumber       "<\d\+\>"
 syn match   klipperFloat        "<\d\+\.\d*\>"
 
 " Sections
-syn region  klipperSection      start=/^\[/ end=/\]/ contains=klipperSectionType matchgroup=Section oneline
+syn region  klipperSectionHeading      start=/^\[/ end=/\]/ contains=klipperSectionType matchgroup=Section oneline
 syn match   klipperSectionType  "\w\+" contained nextgroup=klipperSectionIdentifier
 syn match   klipperSectionIdentifier "[^]]\+" contained
 
@@ -30,6 +30,7 @@ syn match   klipperConfigOperatorMultiLine  "[:=]\s*\n" contained skipnl nextgro
 syn match   klipperConfigValueSingleLine ".*$" contained contains=klipperBoolean,klipperNumber,klipperFloat,klipperComment
 syn region  klipperConfigValueMultiLine start=/^\s*\S/ end=/^\S/ms=s+1,me=s-1 contains=klipperBoolean,klipperNumber,klipperFloat,klipperComment keepend contained
 
+" GCode handling
 syn match   klipperGcodeMacroName "^\s*\w*gcode\s*\ze[:=]" nextgroup=klipperGcodeMacroKeyword
 syn match   klipperGcodeMacroKeyword  "[:=]" contained skipnl nextgroup=klipperGcodeMacroBlock
 syn region  klipperGcodeMacroBlock   start=/^\s*\S/ end=/^\S/ms=s+1,me=s-1 contains=klipperGcodeCommand,klipperGcodeParameter,klipperComment,@jinjaTemplate keepend contained
@@ -58,7 +59,6 @@ hi def link klipperGcodeVariable Type
 hi def link klipperGcodeMacroKeyword Keyword
 hi def link klipperGcodeMacroBlock String
 hi def link klipperKeyword      Identifier
-
 
 " Klipper exclusively enables {} as the varblock matcher
 syn region jinjaVarBlock matchgroup=jinjaVarDelim start=/{-\?/ end=/-\?}/ containedin=ALLBUT,jinjaTagBlock,jinjaVarBlock,jinjaRaw,jinjaString,jinjaNested,jinjaComment
