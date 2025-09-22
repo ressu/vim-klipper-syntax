@@ -20,9 +20,9 @@ syn match   klipperNumber       "<\d\+\>"
 syn match   klipperFloat        "<\d\+\.\d*\>"
 
 " Sections
-syn region  klipperSection      start=/^\[/ end=/\]/ contains=klipperSectionType,klipperSectionIdentifier matchgroup=Section
+syn region  klipperSection      start=/^\[/ end=/\]/ contains=klipperSectionType matchgroup=Section oneline
 syn match   klipperSectionType  "\w\+" contained nextgroup=klipperSectionIdentifier
-syn match   klipperSectionIdentifier "\s\+\w\+" contained
+syn match   klipperSectionIdentifier "[^]]\+" contained
 
 syn match   klipperConfigKey      "^\s*\w\+\s*" nextgroup=klipperConfigOperatorSingleLine,klipperConfigOperatorMultiLine
 syn match   klipperConfigOperatorSingleLine "[:=]\s*" contained nextgroup=klipperConfigValueSingleLine
