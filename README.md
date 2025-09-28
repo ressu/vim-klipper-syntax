@@ -20,7 +20,7 @@ The plugin consists of two main parts:
     *   G-code Blocks (`klipperGcodeMacroBlock`):
         *   Multi-line sections containing G-code commands (`klipperGcodeCommand`), parameters (`klipperGcodeParameter`), comments, and Jinja templates.
     *   Built-in Keywords (`klipperBuiltinKeyword`): Removed as redundant, specific highlighting is handled by other groups.
-*   **`ftdetect/klipper.vim`**: This file is responsible for automatically detecting Klipper configuration files. It sets the Vim filetype to `klipper` for any file with a `.cfg` extension.
+*   **`ftdetect/klipper.vim`**: This file is responsible for intelligently detecting Klipper configuration files. It scans the contents of `.cfg` files for specific Klipper keywords (e.g., `[mcu]`, `[printer]`) to accurately determine if the file is a Klipper config, avoiding conflicts with other formats that use the `.cfg` extension.
 
 ## Installation and Usage
 
@@ -63,6 +63,22 @@ including it in your plugin specification.
 ```
 
 This will automatically handle the installation and updates for you.
+
+### Manual Filetype Override
+
+The plugin's automatic detection is designed to be accurate, but there may be
+edge cases where you need to manually set the filetype. You can do this by
+adding a "modeline" to the top or bottom of your Klipper configuration file.
+
+**Example Modeline:**
+
+Add this as the first or last line of your `.cfg` file:
+
+```vim
+# vim: set filetype=klipper:
+```
+
+This provides a reliable way to ensure syntax highlighting is applied correctly.
 
 ## Development Conventions
 

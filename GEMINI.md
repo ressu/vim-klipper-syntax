@@ -5,7 +5,7 @@ configuration files (`.cfg`).
 
 ## Project Structure
 
-- `ftdetect/klipper.vim`: Detects `.cfg` files and sets the filetype to `klipper`.
+- `ftdetect/klipper.vim`: Intelligently detects Klipper configuration files by scanning for specific keywords, improving accuracy.
 - `syntax/klipper.vim`: Contains the syntax highlighting rules for the `klipper`
   filetype.
 - `GEMINI.md`: This file. Contains project context for the Gemini LLM.
