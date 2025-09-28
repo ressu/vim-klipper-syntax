@@ -85,3 +85,14 @@ This provides a reliable way to ensure syntax highlighting is applied correctly.
 *   **Vimscript Syntax:** The plugin is written in Vimscript, adhering to Vim's syntax highlighting engine rules.
 *   **Filetype Detection:** Filetype detection is handled via `ftdetect` scripts, following standard Vim plugin conventions.
 *   **Jinja Integration:** The plugin includes a mechanism to integrate with a `syntax/jinja.vim` file (if available) for highlighting Jinja templates within G-code blocks.
+
+## AI-Assisted Development
+
+This project was developed with the assistance of AI tools. The AI-generated code
+and suggestions were carefully guided, reviewed, and verified by the project
+author to ensure correctness and quality.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+

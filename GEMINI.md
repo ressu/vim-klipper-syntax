@@ -10,6 +10,7 @@ configuration files (`.cfg`).
   filetype.
 - `GEMINI.md`: This file. Contains project context for the Gemini LLM.
 - `README.md`: User-facing documentation with installation and usage instructions.
+- `LICENSE`: The MIT license file for the project.
 
 ## Development Conventions
 
