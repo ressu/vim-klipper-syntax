@@ -2,26 +2,6 @@
 
 This project provides syntax highlighting for Klipper 3D printer configuration files within the Vim editor. It aims to improve readability and ease of editing for Klipper's `.cfg` files, which combine INI-like sections, key-value pairs, and multi-line G-code blocks with Jinja templating.
 
-## Project Overview
-
-The plugin consists of two main parts:
-
-*   **`syntax/klipper.vim`**: This file defines the core syntax highlighting rules for Klipper configuration files. It includes rules for:
-    *   Comments (starting with `#` or `;`)
-    *   Boolean values (`true`, `false`)
-    *   Numbers (integers and floats)    
-    *   Sections (`[section_type section_identifier]`, e.g., `[printer]`, `[gcode_macro CANCEL_PRINT]`, `[include my_file.cfg]`)
-    *   Configuration Keys (`klipperConfigKey`) and their associated values:
-        *   Single-line values (`klipperConfigValueSingleLine`)
-        *   Multi-line values (`klipperConfigValueMultiLine`), which follow indentation rules.
-    *   G-code Macro Definitions (`klipperGcodeMacroName`):
-        *   Identifies variables ending in `gcode` (e.g., `gcode`, `activate_gcode`).
-        *   Leads to `klipperGcodeMacroBlock` for multi-line G-code content.
-    *   G-code Blocks (`klipperGcodeMacroBlock`):
-        *   Multi-line sections containing G-code commands (`klipperGcodeCommand`), parameters (`klipperGcodeParameter`), comments, and Jinja templates.
-    *   Built-in Keywords (`klipperBuiltinKeyword`): Removed as redundant, specific highlighting is handled by other groups.
-*   **`ftdetect/klipper.vim`**: This file is responsible for intelligently detecting Klipper configuration files. It scans the contents of `.cfg` files for specific Klipper keywords (e.g., `[mcu]`, `[printer]`) to accurately determine if the file is a Klipper config, avoiding conflicts with other formats that use the `.cfg` extension.
-
 ## Installation and Usage
 
 To use this plugin, you typically place the `ftdetect` and `syntax` directories within your Vim configuration directory (e.g., `~/.vim/` or `~/.config/nvim/`).
